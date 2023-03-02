@@ -14,7 +14,9 @@ His research interests include Flash-based database technology and Persistent Me
 Contact
 ======
 Office: HUFS Eng Build. 511 (공학관 511호)
+
 Email: jonghyeok.park@hufs.ac.kr
+
 Tel: 031-290-????
 
 
@@ -46,7 +48,7 @@ News
 
 
 Recent Papers
-------
+======
 NV-SQL: Boosting OLTP Performance with Non-Volatile DIMMs. (to appear)
 Mijin An, Jonghyeok Park, Tianzheng Wang, Beomseok Nam and Sang-Won Lee.
 [VLDB 2023](https://vldb.org/2023/)
