@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Overview"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,43 +8,53 @@ redirect_from:
   - /about.html
 ---
 
-This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
+Jong-Hyeok Park received the B.S. degree in software from Sungkyunkwan University, Suwon, Korea, in 2016, where he is currently pursuing the Ph.D. degree with the Department of Software. 
+His research interests include Flash-based database technology and Persistent Memory DBMS and computational storages.
 
-A data-driven personal website
+Contact
 ======
-Like many other Jekyll-based GitHub Pages templates, academicpages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
+Office: HUFS Eng Build. 511 (공학관 511호)
+Email: jonghyeok.park@hufs.ac.kr
+Tel: 031-290-????
 
-Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart's content without touching the content of your site. If you get to a point where you've broken something in Jekyll/HTML/CSS beyond repair, your markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over -- just be sure to save the markdown files! Finally, you can also write scripts that process the structured data on the site, such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
 
-Getting started
+Research #1. NVM-based Database Engine Optimizations
 ======
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
+When running OLTP workloads, relational DBMSs with flash SSDs still suffer from the durability overhead. Heavy writes to SSD not only limit the performance but also shorten the storage lifespan. 
+To mitigate the durability overhead, this paper proposes a new database architecture, NV-SQL. NV-SQL aims at absorbing a large fraction of writes written from DRAM to SSD by introducing NVDIMM into the memory hierarchy as a durable write cache. 
+On the new architecture, NV-SQL makes two technical contributions. 
+First, it proposes the re-update interval-based admission policy that determines which write-hot pages qualify for being cached in NVDIMM.
+It is novel in that the page hotness is based solely on pages’ LSN.
+Second, this study finds that NVDIMM-resident pages can violate the page action consistency upon crash and proposes how to detect inconsistent pages using per-page in-update flag and how to rectify them using the redo log. 
+NV-SQL demonstrates how the ARIES-like logging and recovery techniques can be elegantly extended to support the caching and recovery for NVDIMM data.
+Additionally, by placing write-intensive redo buffer and DWB in NVDIMM, NV-SQL eliminates the log-force-at-commit and WAL protocols and further halves the writes to the storage. 
+Our NV-SQL prototype running with a real NVDIMM device outperforms the same-priced vanilla MySQL with larger DRAM by several folds in terms of transaction throughput for write-intensive OLTP benchmarks. This confirms that NV-SQL is a cost-performance efficient solution to the durability problem.
 
-Site-wide configuration
+Research #2. SSD as SQL Database Engine
+======
+Every database engine runs on top of an operating system in the host, strictly separated with the storage. This more-than-half-century-old IHDE (In-Host-Database-Engine) architecture, however, reveals its limitations when run on fast flash memory SSDs. In particular, the IO stacks incur significant run-time overhead and also hinder vertical optimizations between database engines and SSDs. In this paper, we envisage a new database architecture, called SaS (SSD as SQL database engine), where a full-blown SQL database engine runs inside SSD, tightly integrated with SSD architecture without intervening kernel stacks. As IO stacks are removed, SaS is free from their run-time overhead and further can explore numerous vertical optimizations between database engine and SSD. SaS evolves SSD from dummy block device to database server with SQL as its primary interface. The benefit of SaS will be more outstanding in the data centers where the distance between database engine and the storage is ever widening because of virtualization, storage disaggregation, and open software stacks. The advent of computational SSDs with more compute resource will enable SaS to be more viable and attractive database architecture.
+
+
+Research #3. Flash-based Database Engine Optimizations
+======
+For a write request, today flash storage cannot distinguish the logical object it comes from. In such object-oblivious flash devices, concurrent writes from different objects are simply packed in their arrival order to flash memory blocks; hence objects with different lifetimes are multiplexed onto the same flash blocks. This multiplexing incurs write amplification, worsening the performance. Tackling the multiplexing problem, we propose a novel interface for flash storage, FlashAlloc. It is used to pass the logical address ranges of logical objects to the flash storage and thus enlighten the storage to stream writes by objects. The object-aware flash storage can de-multiplex writes from different objects with distinct deathtimes into per-object dedicated flash blocks. Given that popular data stores separate writes using objects (e.g., SSTables in RocksDB), we can achieve, unlike the existing solutions, transparent write streaming just by calling FlashAlloc upon object creation. Our experimental results using an open-source SSD prototype demonstrate that FlashAlloc can reduce write amplification factor (WAF) in RocksDB, F2FS, and MySQL by 1.5, 2.5, and 0.3, respectively and thus improve throughput by 2x, 1.8x, and 1.2x, respectively. In particular, FlashAlloc will mitigate the interference among multitenants. When RocksDB and MySQL were run together on the same SSD, FlashAlloc decreased WAF from 4.2 to 2.5 and doubled their throughputs.
+
+
+News
+======
+- Our paper "NV-SQL: Boosting OLTP Performance with Non-Volatile DIMMs" was accepted by VLDB 2023
+
+
+Recent Papers
 ------
-The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
+NV-SQL: Boosting OLTP Performance with Non-Volatile DIMMs. (to appear)
+Mijin An, Jonghyeok Park, Tianzheng Wang, Beomseok Nam and Sang-Won Lee.
+[VLDB 2023](https://vldb.org/2023/)
 
-Create content & metadata
-------
-For site content, there is one markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a markdown file in the [_talks directory](https://github.com/academicpages/academicpages.github.io/tree/master/_talks). At the top of each markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the [Talks page](https://academicpages.github.io/talks), each [individual page](https://academicpages.github.io/talks/2012-03-01-talk-1) for specific talks, the talks section for the [CV page](https://academicpages.github.io/cv), and the [map of places you've given a talk](https://academicpages.github.io/talkmap.html) (if you run this [python file](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py) or [Jupyter notebook](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb), which creates the HTML for the map based on the contents of the _talks directory).
+[SaS: SSD as SQL Database System](http://vldb.org/pvldb/vol14/p1481-lee.pdf)
+Jong-Hyeok Park, Soyee Choi, Gihwan Oh, and Sang-Won Lee.
+[VLDB 2021](https://vldb.org/2021/)
 
-**Markdown generator**
-
-I have also created [a set of Jupyter notebooks](https://github.com/academicpages/academicpages.github.io/tree/master/markdown_generator
-) that converts a CSV containing structured data about talks or presentations into individual markdown files that will be properly formatted for the academicpages template. The sample CSVs in that directory are the ones I used to create my own personal website at stuartgeiger.com. My usual workflow is that I keep a spreadsheet of my publications and talks, then run the code in these notebooks to generate the markdown files, then commit and push them to the GitHub repository.
-
-How to edit your site's GitHub repository
-------
-Many people use a git client to create files on their local computer and then push them to GitHub's servers. If you are not familiar with git, you can directly edit these configuration and markdown files directly in the github.com interface. Navigate to a file (like [this one](https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md) and click the pencil icon in the top right of the content preview (to the right of the "Raw | Blame | History" buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the "Create new file" or "Upload files" buttons. 
-
-Example: editing a markdown file for a talk
-![Editing a markdown file for a talk](/images/editing-talk.png)
-
-For more info
-------
-More info about configuring academicpages can be found in [the guide](https://academicpages.github.io/markdown/). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+[SQL Statement Logging for Making SQLite Truly Lite](http://www.vldb.org/pvldb/vol11/p513-park.pdf)
+Jong-Hyeok Park, Gihwan Oh, and Sang-Won Lee.
+[VLDB 2021](https://vldb.org/2021/)
