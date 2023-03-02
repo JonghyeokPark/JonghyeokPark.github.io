@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Jong-Hyeok Park received the B.S. degree in software from Sungkyunkwan University, Suwon, Korea, in 2016, where he is currently pursuing the Ph.D. degree with the Department of Software. 
+- Jong-Hyeok Park received the B.S. degree in software from Sungkyunkwan University, Suwon, Korea, in 2016, where he is currently pursuing the Ph.D. degree with the Department of Software. 
 His research interests include Flash-based database technology and Persistent Memory DBMS and computational storages.
 
 Contact
