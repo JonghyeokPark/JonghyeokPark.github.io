@@ -14,9 +14,7 @@ His research interests include Flash-based database technology and Persistent Me
 Contact
 ======
 Office: HUFS Eng Build. 511 (공학관 511호)  
-  
 Email: jonghyeok.park@hufs.ac.kr  
-
 Tel: 031-290-????  
 
 
