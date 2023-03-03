@@ -1,31 +1,19 @@
 ---
-title: "NV-SQL: Boosting OLTP Performance with Non-Volatile DIMMs"
+title: "SQL Statement Logging for Making SQLite Truly Lite"
 collection: publications
-permalink: /publication/0-nvsql-vldb23
-excerpt: 'When running OLTP workloads, relational DBMSs with flash SSDs still suffer from the durability overhead. Heavy writes to SSD not only limit the performance but also shorten the storage lifespan. 
-To mitigate the durability overhead, this paper proposes a new database architecture, NV-SQL. NV-SQL aims at absorbing a large fraction of writes written from DRAM to SSD by introducing NVDIMM into the memory hierarchy as a durable write cache. 
-On the new architecture, NV-SQL makes two technical contributions. 
-First, it proposes the re-update interval-based admission policy that determines which write-hot pages qualify for being cached in NVDIMM.
-It is novel in that the page hotness is based solely on pages’ LSN.
-Second, this study finds that NVDIMM-resident pages can violate the page action consistency upon crash and proposes how to detect inconsistent pages using per-page in-update flag and how to rectify them using the redo log. 
-NV-SQL demonstrates how the ARIES-like logging and recovery techniques can be elegantly extended to support the caching and recovery for NVDIMM data.
-Additionally, by placing write-intensive redo buffer and DWB in NVDIMM, NV-SQL eliminates the log-force-at-commit and WAL protocols and further halves the writes to the storage. 
-Our NV-SQL prototype running with a real NVDIMM device outperforms the same-priced vanilla MySQL with larger DRAM by several folds in terms of transaction throughput for write-intensive OLTP benchmarks. This confirms that NV-SQL is a cost-performance efficient solution to the durability problem.'
-date: 2023-03-01
-venue: 'Proceeding of Very Large Database 2023'
-paperurl: 'http://academicpages.github.io/files/paper1.pdf'
-citation: 'Mijin An, Jonghyek Park, Tianzheng Wang, Bomeseok Nam, Sang-Won Lee, NV-SQL: Boosting OLTP Performance with Non-Volatile DIMMs'
+permalink: /publication/2-ssl-vldb18
+excerpt: 'The lightweight codebase of SQLite was helpful in making it become the de-facto standard database in most mobile devices, but, at the same time, forced it to take less-complicated transactional schemes, such as physical page logging, journaling, and force commit, which in turn cause excessive write amplification. Thus, the write IO cost in SQLite is not lightweight at all.
+In this paper, to make SQLite truly lite in terms of IO efficiency for the transactional support, we propose SQLite/SSL, a per-transaction SQL statement logging scheme: when a transaction commits, SQLite/SSL ensures its durability by storing only SQL statements of small size, thus writing less and performing faster at no compromise of transactional solidity. Our main contribution is to show that, based on the observation that mobile transactions tend to be short and exhibit strong update locality, logical logging can, though long discarded, become an elegant and perfect fit for SQLite-based mobile applications. Further, we leverage the WAL journal mode in vanilla SQLite as a transaction-consistent checkpoint mechanism which is indispensable in any logical logging scheme. In addition, we show for the first time that byte-addressable NVM (non-volatile memory) in host-side can realize the full potential of logical logging because it allows to store fine-grained logs quickly.
+We have prototyped SQLite/SSL by augmenting vanilla SQLite with a transaction-consistent checkpoint mechanism and a redo-only recovery logic, and have evaluated its performance using a set of synthetic and real workloads. When a real NVM board is used as its log device, SQLite/SSL can outperform vanilla SQLite's WAL mode by up to 300x and also outperform the state-of-the-arts SQLite/PPL scheme by several folds in terms of IO time.'
+date: 20217-12-01
+venue: 'Proceedings of the VLDB Endowment'
+paperurl: 'http://www.vldb.org/pvldb/vol11/p513-park.pdf'
+citation: 'Jong-Hyeok Park, Gihwan Oh, and Sang-Won Lee. 2017. SQL statement logging for making SQLite truly lite'
 ---
-When running OLTP workloads, relational DBMSs with flash SSDs still suffer from the durability overhead. Heavy writes to SSD not only limit the performance but also shorten the storage lifespan. 
-To mitigate the durability overhead, this paper proposes a new database architecture, NV-SQL. NV-SQL aims at absorbing a large fraction of writes written from DRAM to SSD by introducing NVDIMM into the memory hierarchy as a durable write cache. 
-On the new architecture, NV-SQL makes two technical contributions. 
-First, it proposes the re-update interval-based admission policy that determines which write-hot pages qualify for being cached in NVDIMM.
-It is novel in that the page hotness is based solely on pages’ LSN.
-Second, this study finds that NVDIMM-resident pages can violate the page action consistency upon crash and proposes how to detect inconsistent pages using per-page in-update flag and how to rectify them using the redo log. 
-NV-SQL demonstrates how the ARIES-like logging and recovery techniques can be elegantly extended to support the caching and recovery for NVDIMM data.
-Additionally, by placing write-intensive redo buffer and DWB in NVDIMM, NV-SQL eliminates the log-force-at-commit and WAL protocols and further halves the writes to the storage. 
-Our NV-SQL prototype running with a real NVDIMM device outperforms the same-priced vanilla MySQL with larger DRAM by several folds in terms of transaction throughput for write-intensive OLTP benchmarks. This confirms that NV-SQL is a cost-performance efficient solution to the durability problem.
+The lightweight codebase of SQLite was helpful in making it become the de-facto standard database in most mobile devices, but, at the same time, forced it to take less-complicated transactional schemes, such as physical page logging, journaling, and force commit, which in turn cause excessive write amplification. Thus, the write IO cost in SQLite is not lightweight at all.
+In this paper, to make SQLite truly lite in terms of IO efficiency for the transactional support, we propose SQLite/SSL, a per-transaction SQL statement logging scheme: when a transaction commits, SQLite/SSL ensures its durability by storing only SQL statements of small size, thus writing less and performing faster at no compromise of transactional solidity. Our main contribution is to show that, based on the observation that mobile transactions tend to be short and exhibit strong update locality, logical logging can, though long discarded, become an elegant and perfect fit for SQLite-based mobile applications. Further, we leverage the WAL journal mode in vanilla SQLite as a transaction-consistent checkpoint mechanism which is indispensable in any logical logging scheme. In addition, we show for the first time that byte-addressable NVM (non-volatile memory) in host-side can realize the full potential of logical logging because it allows to store fine-grained logs quickly.
+We have prototyped SQLite/SSL by augmenting vanilla SQLite with a transaction-consistent checkpoint mechanism and a redo-only recovery logic, and have evaluated its performance using a set of synthetic and real workloads. When a real NVM board is used as its log device, SQLite/SSL can outperform vanilla SQLite's WAL mode by up to 300x and also outperform the state-of-the-arts SQLite/PPL scheme by several folds in terms of IO time.
 
-[Download paper here](http://academicpages.github.io/files/paper1.pdf)
+[Download paper here](http://www.vldb.org/pvldb/vol11/p513-park.pdf)
 
-Recommended citation: Mijin An, Jonghyek Park, Tianzheng Wang, Bomeseok Nam, Sang-Won Lee. NV-SQL: Boosting OLTP Performance with Non-Volatile DIMMs.
+Recommended citation: Jong-Hyeok Park, Gihwan Oh, and Sang-Won Lee. 2017. SQL statement logging for making SQLite truly lite. Proc. VLDB Endow. 11, 4 (December 2017), 513–525. https://doi.org/10.1145/3186728.3164146
