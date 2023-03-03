@@ -1,7 +1,7 @@
 ---
 title: "NV-SQL: Boosting OLTP Performance with Non-Volatile DIMMs"
 collection: publications
-permalink: /publication/0.nvsql-vldb23
+permalink: /publication/0-nvsql-vldb23
 excerpt: 'When running OLTP workloads, relational DBMSs with flash SSDs still suffer from the durability overhead. Heavy writes to SSD not only limit the performance but also shorten the storage lifespan. 
 To mitigate the durability overhead, this paper proposes a new database architecture, NV-SQL. NV-SQL aims at absorbing a large fraction of writes written from DRAM to SSD by introducing NVDIMM into the memory hierarchy as a durable write cache. 
 On the new architecture, NV-SQL makes two technical contributions. 
