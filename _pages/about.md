@@ -15,8 +15,8 @@ Contact
 ======
 Office: HUFS Eng Build. 511 (공학관 511호)  
 Email: jonghyeok.park@hufs.ac.kr  
-Tel: 031-330-4363
-[Schedule](https://calendar.google.com/calendar/u/0?cid=am9uZ2h5ZW9rLnBhcmtAaHVmcy5hYy5rcg)
+Tel: 031-330-4363  
+[Schedule](https://calendar.google.com/calendar/u/0?cid=Y19iOGRhYTlmMTM5NzMyNzY4MzM3ZmNmNzc2NDVhODZhMDRiODlhNTc2NDNmM2I1MTc1OTEyNDlkMTA1NGU0MzA2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)
 
 
 Research #1. NVM-based Database Engine Optimizations
