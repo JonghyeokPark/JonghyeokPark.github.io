@@ -10,7 +10,7 @@ redirect_from:
 
 My research primarily revolves around the design of new intelligent database systems including (1) NVM (Non-Volatile Memory)-aware Database systems, (2) Flash-based Database systems, and (3) In-Storage computing.
 Through this research, I aim to explore the potential benefits and limitations in the context of the modern computing environment and to develop new approaches for designing and implementing intelligent database systems that can meet the demands of data-driven applications using exascale data   
-Most of our research artifacts are released as [open source](https://github.com/ids-hufs)
+Most of our research artifacts are released as [open source](https://github.com/ids-hufs)   
 Visit our [Lab](ids.hufs.ac.kr) for more details.
 
 Contact
