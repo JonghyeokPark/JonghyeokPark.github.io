@@ -12,7 +12,7 @@ redirect_from:
 Biography
 
 Jonghyeok Park is  an assistant professor in Hankuk University of Foreign Studies (HUFS) Yongin, South Korea.
-From Sep 2022 to Feb 2023, I was a postdoctoral researcher at Sunkyunkwan University.
+From Sep 2022 to Feb 2023, He was a postdoctoral researcher at Sunkyunkwan University.
 His research primarily revolves around the design of new intelligent database systems, and pursuing the 
 Jonghyeok Park received the Ph.D and B.S. degrees in computer science from Sungkyunkwan University, Suwon, Korea, in 2016 and 2022, respectively.
 
