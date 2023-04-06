@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Jonghyeok Park"
 title_separator          : "-"
 name                     : &name "Jonghyeok Park"
-description              : &description "Associate Professor at Hankuk University of Foreign Studies"
+description              : &description "Assistant Professor at Hankuk University of Foreign Studies"
 url                      : https://JonghyeokPark.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "JonghyeokPark/JonghyeokPark.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Jonghyeok Park"
   avatar           : "profile.png"
-  bio              : "Associate Professor at Hankuk University of Foreign Studies"
+  bio              : "Assistant Professor at Hankuk University of Foreign Studies"
   location         : "South Korea"
   employer         :
   pubmed           : 
