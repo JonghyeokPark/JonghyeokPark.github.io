@@ -13,7 +13,7 @@ Additionally, by placing write-intensive redo buffer and DWB in NVDIMM, NV-SQL e
 Our NV-SQL prototype running with a real NVDIMM device outperforms the same-priced vanilla MySQL with larger DRAM by several folds in terms of transaction throughput for write-intensive OLTP benchmarks. This confirms that NV-SQL is a cost-performance efficient solution to the durability problem.'
 date: 2023-03-01
 venue: 'Proceeding of Very Large Database 2023'
-paperurl: 'http://academicpages.github.io/files/paper1.pdf'
+paperurl: 'https://www.vldb.org/pvldb/vol16/p1453-lee.pdf'
 citation: 'Mijin An, Jonghyek Park, Tianzheng Wang, Bomeseok Nam, Sang-Won Lee, NV-SQL: Boosting OLTP Performance with Non-Volatile DIMMs'
 ---
 When running OLTP workloads, relational DBMSs with flash SSDs still suffer from the durability overhead. Heavy writes to SSD not only limit the performance but also shorten the storage lifespan. 
