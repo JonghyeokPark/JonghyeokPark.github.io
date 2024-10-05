@@ -1,5 +1,6 @@
 ---
 permalink: /
+redirect_to: "https://sites.google.com/view/jonghyeokpark"
 title: "Introduction"
 excerpt: "About me"
 author_profile: true

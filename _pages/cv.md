@@ -2,6 +2,7 @@
 layout: archive
 title: "CV"
 permalink: /cv/
+redirect_to: "https://sites.google.com/view/jonghyeokpark"
 author_profile: true
 redirect_from:
   - /resume
